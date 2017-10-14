@@ -92,7 +92,7 @@ class PostController extends AppController{
       //    $article = Article::findBySql($articles_query)->all();
 
         $articles_query = "SELECT * FROM pages WHERE description LIKE :search";
-          $article = Article::findBySql($articles_query, ['search' => '%па%'])->all();
+          $article = Article::findBySql($articles_query, ['search' => '%ак%'])->all();
 
 
 
