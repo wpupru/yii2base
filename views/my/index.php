@@ -1,0 +1,1 @@
+<h1 style="color: green; text-align: center">Action Index</h1>
