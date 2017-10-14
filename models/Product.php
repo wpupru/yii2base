@@ -19,4 +19,9 @@ class Product extends ActiveRecord {
         return 'products';
     }
 
+    public function getCategory(){
+
+        return $this->hasOne(Category::className(), ['id' => 'parent']);
+    }
+
 }

@@ -67,21 +67,28 @@ class PostController extends AppController{
       //  $query = "SELECT * FROM categories WHERE alias LIKE '%ak%'"; // %% использовать не безопасно
       //  $cats = Category::findBySql($query)->all();
 
-     //   $query = "SELECT * FROM categories WHERE title LIKE :search";
-     //   $cats = Category::findBySql($query, ['search' => '%пч%'])->all(); // Безопасно!
+      //  $query = "SELECT * FROM categories WHERE title LIKE :search";
+      //  $cats = Category::findBySql($query, ['search' => '%пч%'])->all(); // Безопасно!
 
      //   $prods = Product::find()->where(['like','title','му'])->all();
 
        //   $query = "SELECT * FROM products WHERE title LIKE '%кк%'"; // %% использовать не безопасно
        //   $prods = Product::findBySql($query)->all();
 
-      //  $query = "SELECT * FROM products WHERE title LIKE :search";
+      // $query = "SELECT * FROM products WHERE title LIKE :search";
       //  $prods = Product::findBySql('$query', ['search' => '%кк%'])->all();
 
+      //  $cats = Category::findOne(694); // Ленивая(отложенная загрузка)
 
+        //  $cats = Category::find()->with('products')->where('id=694')->all(); // Жадная(полная) загрузка
+
+
+// С with() загрузка будет жадной, и будет только 6 запросов к ДБ, беоз with() загрузка ленивая, и будет 41 запрос при одинаковом результате вывода.
+      //  $cats = Category::find()->->all(); // ленивая загрузка(41 запрос) - результат одинаковый
+        $cats = Category::find()->with('products')->all(); // жадная загрузка (6 запросов) - результат одинаковый
 
        // return $this->render('show', compact('cats'));
-      //  return $this->render('show', compact('cats'));
+        return $this->render('show', compact('cats'));
 
     }
 
