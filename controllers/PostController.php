@@ -67,8 +67,8 @@ class PostController extends AppController{
       //  $query = "SELECT * FROM categories WHERE alias LIKE '%ak%'"; // %% использовать не безопасно
       //  $cats = Category::findBySql($query)->all();
 
-        $query = "SELECT * FROM categories WHERE title LIKE :search";
-        $cats = Category::findBySql($query, ['search' => '%пч%'])->all(); // Безопасно!
+     //   $query = "SELECT * FROM categories WHERE title LIKE :search";
+     //   $cats = Category::findBySql($query, ['search' => '%пч%'])->all(); // Безопасно!
 
      //   $prods = Product::find()->where(['like','title','му'])->all();
 
@@ -81,12 +81,18 @@ class PostController extends AppController{
 
 
        // return $this->render('show', compact('cats'));
-        return $this->render('show', compact('cats'));
+      //  return $this->render('show', compact('cats'));
 
     }
 
     public function actionArticle() {
-        $article = Article::find()->all();
+     //   $article = Article::find()->all();
+
+      //  $articles_query = "SELECT * FROM pages WHERE title LIKE '%мп%'";
+      //    $article = Article::findBySql($articles_query)->all();
+
+        $articles_query = "SELECT * FROM pages WHERE description LIKE :search";
+          $article = Article::findBySql($articles_query, ['search' => '%па%'])->all();
 
 
 

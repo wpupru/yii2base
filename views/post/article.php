@@ -3,7 +3,7 @@
 <?php
 
 foreach ($article as $arts){
-    echo $arts->title . '<br>';
+    echo $arts->description . '<br>';
 }
 
 ?>
