@@ -20,10 +20,11 @@ use yii\helpers\Html;
     <?php echo Yii::$app->session->getFlash('error'); ?>
 <?php endif; ?>
 
-<?php $form = ActiveForm::begin(['options' => ['class' => 'form-horizontal', 'id' => 'testForm']]) ?>
+<?php $form = ActiveForm::begin(['options' => ['id' => 'testForm']]) ?>
 <h2>Почтовая форма</h2>
 <?= $form->field($model, 'name')?>
 <?= $form->field($model, 'email')?>
+<?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
 <?= $form->field($model, 'text')->textarea(['rows' => 5]) ?>
 <?= Html::submitButton("Отправить", ['class' => 'btn btn-success']) ?>
 <?php ActiveForm::end() ?>
