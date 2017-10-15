@@ -12,7 +12,7 @@ use app\models\Article;
 use app\models\Category;
 use app\models\Product;
 use Yii;
-use app\models\TestForm;
+use app\models\MailForm;
 
 
 class PostController extends AppController{
@@ -25,9 +25,17 @@ class PostController extends AppController{
         $this->view->registerMetaTag(['name' => 'keywords','content' => 'ключевик1,ключевик2,ключевик3...']);
         $this->view->registerMetaTag(['name' => 'description','content' => 'описание...']);
 
-        $model = new TestForm();
+        $model = new MailForm();
+
+    /*    $model->name = 'Автор';
+        $model->email = 'pke@pochta.ws';
+        $model->text = 'Пробный текст для организации приёмы данных из формы.';
+        $model->save();*/
+
+    // Метод save() подставляется вместо метода валидации, поскольку он уже включает в себя валидацию!
+
         if($model->load(Yii::$app->request->post()) ){
-            if($model->validate()){
+            if($model->save()){
                 Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();
             } else {
