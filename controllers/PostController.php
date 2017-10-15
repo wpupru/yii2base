@@ -25,6 +25,23 @@ class PostController extends AppController{
         $this->view->registerMetaTag(['name' => 'keywords','content' => 'ключевик1,ключевик2,ключевик3...']);
         $this->view->registerMetaTag(['name' => 'description','content' => 'описание...']);
 
+// Обращение к данным в таблице
+     //  $post = MailForm::findOne(5);
+
+        // Обновление и изменение данных в таблице
+    //   $post->email = 'kruk@taganka.org';
+     //  $post->save(); // Для обновления нескольких записей используетя метод updateAll()
+
+        // Удаление данных из базы
+      //  $post = MailForm::findOne(2);
+      //  $post->delete();
+
+        // Для удаление нескольких записей используется метод deleteAll()
+      //  MailForm::deleteAll(['>', 'id', 4]);
+
+
+
+
         $model = new MailForm();
 
     /*    $model->name = 'Автор';
