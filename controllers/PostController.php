@@ -131,4 +131,8 @@ class PostController extends AppController{
         return $this->render('article', compact('article'));
     }
 
+    public function actionWidget(){
+        return $this->render('widget');
+    }
+
 }
